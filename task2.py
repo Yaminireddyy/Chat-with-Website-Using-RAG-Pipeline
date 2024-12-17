@@ -50,7 +50,7 @@ generator = pipeline('text-generation', model='gpt2')
 def generate_response(query, relevant_chunks):
     context =  " ".join([item["chunk"] for item in relevant_chunks])  # Combine the relevant chunks as context
     prompt = f"Question: {query}\nAnswer based on the following context:\n{context}\nAnswer: "
-    response = generator(prompt, max_length=500,max_new_tokens=500,truncation=True)
+    response = generator(prompt, max_length=200,max_new_tokens=200,truncation=True)
     return response[0]['generated_text']
 
 url = "https://www.washington.edu/"
